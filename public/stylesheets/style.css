@@ -1,0 +1,71 @@
+body {
+  padding: 50px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+a {
+  color: #00B7FF;
+}
+
+p {
+  margin: 5px 5px;
+}
+
+
+/**
+ * Scheduler table contents
+ */
+
+#schedule {
+  border-collapse: collapse;
+  text-align: center;
+  width: 100%;
+}
+
+#schedule td, #schedule th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+#schedule tr:nth-child(even){background-color: #f2f2f2;}
+
+#schedule th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  background-color: #4CAF50;
+  color: white;
+  font-size: 32px;
+}
+
+#schedule .heading {
+  text-transform: uppercase;
+  font-weight: 800;
+}
+
+#schedule .section {
+  padding: 0;
+  width: 50%;
+}
+
+#schedule .courses {
+  list-style: none;
+  padding: 0;
+  margin: auto;
+  text-transform: uppercase;
+}
+
+#schedule .courses li {
+  background: #fff;
+  border: 1px solid #fff;
+  cursor: move;
+  padding: 5px 0;
+  margin: 0 auto;
+}
+
+#schedule .courses :hover {
+  border: 1px solid #ddd;
+}
+
+#schedule .chosen-course {
+  font-weight: 600;
+}
