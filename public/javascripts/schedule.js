@@ -5,8 +5,10 @@ $(document).ready(function() {
   schedule.find('.courses').each(function(idx, courseList) {
     var list = $(courseList).get(0);
     new Sortable(list, {
-      chosenClass: 'chosen-course',         // CSS class
-      group: 'schedule',                  // allow dragging within groups
+      animation: 150,
+      chosenClass: 'chosen-course',
+      ghostClass: 'ghost-course',
+      group: 'schedule',
     });
   });
 

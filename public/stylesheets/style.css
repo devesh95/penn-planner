@@ -12,6 +12,12 @@ p {
 }
 
 
+.container {
+  margin: 0 auto;
+  max-width: 75%;
+}
+
+
 /**
  * Scheduler table contents
  */
@@ -56,10 +62,10 @@ p {
 
 #schedule .courses li {
   background: #fff;
-  border: 1px solid #fff;
   cursor: move;
   padding: 5px 0;
   margin: 0 auto;
+  width: 50%;
 }
 
 #schedule .courses :hover {
@@ -68,4 +74,13 @@ p {
 
 #schedule .chosen-course {
   font-weight: 600;
+  width: 50%;
+}
+
+#schedule .ghost-course {
+  border-style: dashed;
+  border-width: 2px;
+  border-color: #000;
+  cursor: move;
+  opacity: 0.5;
 }
