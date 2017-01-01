@@ -3,11 +3,16 @@
   <head>
     <title>Penn Planner</title>
     <link rel='stylesheet' href='/stylesheets/style.css' />
+
     <script type="text/javascript" src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
     <script type="text/javascript" src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/Sortable/1.5.0-rc1/Sortable.min.js"></script>
   </head>
   <body>
+    <!-- navbar -->
+    <%- include('navbar'); %>
+
+    <!-- main content -->
     <div id="schedule" class="container">
       <table id="schedule">
         <tr>
@@ -114,6 +119,8 @@
           </td>
         </tr>
       </table>
+
+
     <script type="text/javascript" src="/javascripts/schedule.js"></script>
   </body>
 </html>

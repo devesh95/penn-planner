@@ -65,16 +65,15 @@ p {
   cursor: move;
   padding: 5px 0;
   margin: 0 auto;
-  width: 50%;
+  width: 40%;
 }
 
 #schedule .courses :hover {
-  border: 1px solid #ddd;
+  background: rgba(76, 175, 80, 0.1);
 }
 
 #schedule .chosen-course {
   font-weight: 600;
-  width: 50%;
 }
 
 #schedule .ghost-course {
