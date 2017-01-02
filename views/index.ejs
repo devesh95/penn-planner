@@ -3,6 +3,10 @@
   <head>
     <title>Penn Planner</title>
     <link rel='stylesheet' href='/stylesheets/style.css' />
+    <link rel='stylesheet' href='/stylesheets/tipped.css' />
+    <link rel='stylesheet' href='/stylesheets/card.css' />
+
+    <link rel='stylesheet' href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
 
     <script type="text/javascript" src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
     <script type="text/javascript" src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
@@ -11,6 +15,9 @@
   <body>
     <!-- navbar -->
     <%- include('navbar'); %>
+
+    <!-- course card (no display) -->
+    <%- include('card'); %>
 
     <!-- main content -->
     <div id="schedule" class="container">
@@ -26,20 +33,20 @@
         <tr>
           <td class="fall section">
             <ul class="courses">
-              <li>CIS 160</li>
-              <li>CIS 120</li>
-              <li>MATH 240</li>
-              <li>NETS 213</li>
-              <li>MGMT 100</li>
+              <li class="course">CIS 160</li>
+              <li class="course">CIS 120</li>
+              <li class="course">MATH 240</li>
+              <li class="course">NETS 213</li>
+              <li class="course">MGMT 100</li>
             <ul>
           </td>
           <td class="spring section">
             <ul class="courses">
-              <li>CIS 121</li>
-              <li>MGMT 101</li>
-              <li>BEPP 250</li>
-              <li>EAS 203</li>
-              <li>WRIT 039 302</li>
+              <li class="course">CIS 121</li>
+              <li class="course">MGMT 101</li>
+              <li class="course">BEPP 250</li>
+              <li class="course">EAS 203</li>
+              <li class="course">WRIT 039 302</li>
             <ul>
           </td>
         </tr>
@@ -51,20 +58,20 @@
 
           <td class="fall section">
             <ul class="courses">
-              <li>CIS 160</li>
-              <li>CIS 120</li>
-              <li>MATH 240</li>
-              <li>NETS 213</li>
-              <li>MGMT 100</li>
+              <li class="course">CIS 160</li>
+              <li class="course">CIS 120</li>
+              <li class="course">MATH 240</li>
+              <li class="course">NETS 213</li>
+              <li class="course">MGMT 100</li>
             <ul>
           </td>
           <td class="spring section">
             <ul class="courses">
-              <li>CIS 121</li>
-              <li>MGMT 101</li>
-              <li>BEPP 250</li>
-              <li>EAS 203</li>
-              <li>WRIT 039 302</li>
+              <li class="course">CIS 121</li>
+              <li class="course">MGMT 101</li>
+              <li class="course">BEPP 250</li>
+              <li class="course">EAS 203</li>
+              <li class="course">WRIT 039 302</li>
             <ul>
           </td>
         </tr>
@@ -76,20 +83,20 @@
 
           <td class="fall section">
             <ul class="courses">
-              <li>CIS 160</li>
-              <li>CIS 120</li>
-              <li>MATH 240</li>
-              <li>NETS 213</li>
-              <li>MGMT 100</li>
+              <li class="course">CIS 160</li>
+              <li class="course">CIS 120</li>
+              <li class="course">MATH 240</li>
+              <li class="course">NETS 213</li>
+              <li class="course">MGMT 100</li>
             <ul>
           </td>
           <td class="spring section">
             <ul class="courses">
-              <li>CIS 121</li>
-              <li>MGMT 101</li>
-              <li>BEPP 250</li>
-              <li>EAS 203</li>
-              <li>WRIT 039 302</li>
+              <li class="course">CIS 121</li>
+              <li class="course">MGMT 101</li>
+              <li class="course">BEPP 250</li>
+              <li class="course">EAS 203</li>
+              <li class="course">WRIT 039 302</li>
             <ul>
           </td>
         </tr>
@@ -101,26 +108,32 @@
 
           <td class="fall section">
             <ul class="courses">
-              <li>CIS 160</li>
-              <li>CIS 120</li>
-              <li>MATH 240</li>
-              <li>NETS 213</li>
-              <li>MGMT 100</li>
+              <li class="course">CIS 160</li>
+              <li class="course">CIS 120</li>
+              <li class="course">MATH 240</li>
+              <li class="course">NETS 213</li>
+              <li class="course">MGMT 100</li>
             <ul>
           </td>
           <td class="spring section">
             <ul class="courses">
-              <li>CIS 121</li>
-              <li>MGMT 101</li>
-              <li>BEPP 250</li>
-              <li>EAS 203</li>
-              <li>WRIT 039 302</li>
+              <li class="course">CIS 121</li>
+              <li class="course">MGMT 101</li>
+              <li class="course">BEPP 250</li>
+              <li class="course">EAS 203</li>
+              <li class="course">WRIT 039 302</li>
             <ul>
+          </td>
+        </tr>
+        <tr>
+          <td class="btn" id="add-course" colspan="2">
+            <span><i class='fa fa-plus'></i>&nbsp;<span class="label">Add Course</span></span>
           </td>
         </tr>
       </table>
 
-
+    <script type="text/javascript" src="/javascripts/jquery.override.js"></script>
+    <script type="text/javascript" src="/javascripts/tipped.js"></script>
     <script type="text/javascript" src="/javascripts/schedule.js"></script>
   </body>
 </html>

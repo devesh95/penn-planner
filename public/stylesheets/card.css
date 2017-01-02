@@ -1,0 +1,50 @@
+/**
+ * @author Devesh Dayal deveshd@seas.upenn.edu
+ */
+
+.card-padder {
+  padding: 10px;
+}
+
+.card-content {
+  background: #fff;
+  color: #282828;
+  min-height: 150px;
+  max-width: 300px;
+  margin-bottom: 10px;
+}
+
+.card-title {
+  margin: 15px 0;
+  font-size: 30px;
+}
+
+.card-actions {
+  padding: 5px 0;
+}
+
+.card-action {
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  border-radius: 0;
+  color: #ffffff;
+  font-size: 20px;
+  padding: 10px;
+  margin: 0;
+  float: left;
+  text-decoration: none;
+}
+
+.card-action:hover {
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.card-cancel {
+  background: #eee;
+  color: #787878;
+}
+
+.card-remove {
+  background: #B33A3A;
+}

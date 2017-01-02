@@ -1,3 +1,7 @@
+/**
+ * @author Devesh Dayal deveshd@seas.upenn.edu
+ */
+
 body {
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
@@ -17,6 +21,23 @@ p {
   max-width: 75%;
 }
 
+.btn {
+  background-color: #f2f2f2;
+  cursor: pointer;
+}
+
+.btn:hover {
+  background-color: #d9d9d9;
+}
+
+input[type="text"] {
+  border-style: dashed;
+  border-width: 2px;
+  border-color: #000;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  text-align: center;
+}
+
 
 /**
  * Scheduler table contents
@@ -25,6 +46,12 @@ p {
 #schedule {
   border-collapse: collapse;
   text-align: center;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
   width: 100%;
 }
 
