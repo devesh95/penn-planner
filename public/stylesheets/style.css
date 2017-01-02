@@ -3,8 +3,9 @@
  */
 
 body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  padding: 10px 0;
+  font: 12px "Lucida Grande", Helvetica, Arial, sans-serif;
+  scroll-x: none;
 }
 
 a {
@@ -34,7 +35,7 @@ input[type="text"] {
   border-style: dashed;
   border-width: 2px;
   border-color: #000;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  font: 12px "Lucida Grande", Helvetica, Arial, sans-serif;
   text-align: center;
 }
 
@@ -67,7 +68,7 @@ input[type="text"] {
   padding-bottom: 12px;
   background-color: #4CAF50;
   color: white;
-  font-size: 32px;
+  font-size: 28px;
 }
 
 #schedule .heading {
