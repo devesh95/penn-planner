@@ -7,9 +7,9 @@ router.get('/', function(req, res, next) {
   res.render('index');
 });
 
-router.get('/schedule', isLoggedIn, function(req, res) {
+router.get('/plan', isLoggedIn, function(req, res) {
   var user = req.user;
-  res.render('schedule');
+  res.render('plan');
 });
 
 
@@ -20,7 +20,7 @@ router.get('/auth/google', passport.authenticate('google', {
 }));
 
 router.get('/auth/google/callback', passport.authenticate('google', {
-  successRedirect: '/schedule',
+  successRedirect: '/plan',
   failureRedirect: '/',
 }));
 

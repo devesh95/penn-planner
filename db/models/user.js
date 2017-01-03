@@ -3,14 +3,10 @@
  */
 
 var mongoose = require('mongoose');
+var PlanSchema = require('./plan').schema;
 
 // expanded to allow for future integrations
 var userSchema = mongoose.Schema({  
-  local: {
-    name: String,
-    email: String,
-    password: String,
-  },
   facebook: {
     id: String,
     token: String,
@@ -24,6 +20,7 @@ var userSchema = mongoose.Schema({
     email: String,
     name: String,
   },
+  plans: [PlanSchema]
 });
 
 module.exports = mongoose.model('User', userSchema);
