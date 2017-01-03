@@ -8,7 +8,7 @@ courseReviewsByName = function getReviewsByName(name, cb) {
 	var tokens = name.trim().split(' ');
 	var dept = tokens[0];
 	var coursecode = tokens[1];
-	var section;
+	var section = '001';
 	if (tokens.length > 2) {
 		section = tokens[2];
 	}
@@ -21,7 +21,10 @@ courseReviewsByName = function getReviewsByName(name, cb) {
 						pcr.courseHistoryReviews(course.id, function(err, data) {
 							if (!err) {
 								data.result.values.forEach(function(review) {
-									// Process each review here
+									if (review.section.sectionnum === section) {
+										// Process each review here
+
+									}
 								})
 							}
 						});
