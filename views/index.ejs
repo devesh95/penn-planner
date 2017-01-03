@@ -1,139 +1,25 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Penn Planner</title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-    <link rel='stylesheet' href='/stylesheets/tipped.css' />
-    <link rel='stylesheet' href='/stylesheets/card.css' />
-
-    <link rel='stylesheet' href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
-
-    <script type="text/javascript" src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
-    <script type="text/javascript" src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/Sortable/1.5.0-rc1/Sortable.min.js"></script>
+    <title>Penn Planner | Home </title>
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css"> <!-- load bootstrap css -->
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css"> <!-- load fontawesome -->
+    <style>
+      body { padding-top: 50px; }
+      img { width: 140px; height: 140px; }
+      .fa-sign-out { float: right; }
+    </style>
   </head>
-  <body>
-    <!-- navbar -->
-    <%- include('navbar'); %>
+    <body>
+    <div class="col-sm-8 col-sm-offset-2">
+      <div class="jumbotron text-center">
+        <h1>Penn Planner</h1>
+        <p class="lead">More effective course planning today.</p>
 
-    <!-- course card (no display) -->
-    <%- include('card'); %>
+        <a href="/auth/google" class="btn btn-danger"><span class="fa fa-google-plus"></span> Sign in with Google</a>
 
-    <!-- main content -->
-    <div id="schedule" class="container">
-      <table id="schedule">
-        <tr>
-          <th colspan="2">Four Year Plan</th>
-        </tr>
-        <tr>
-          <td class="heading">Fall 2014</td>
-          <td class="heading">Spring 2015</td>
-        </tr>
-
-        <tr>
-          <td class="fall section">
-            <ul class="courses">
-              <li class="course">CIS 160</li>
-              <li class="course">CIS 120</li>
-              <li class="course">MATH 240</li>
-              <li class="course">NETS 213</li>
-              <li class="course">MGMT 100</li>
-            <ul>
-          </td>
-          <td class="spring section">
-            <ul class="courses">
-              <li class="course">CIS 121</li>
-              <li class="course">MGMT 101</li>
-              <li class="course">BEPP 250</li>
-              <li class="course">EAS 203</li>
-              <li class="course">WRIT 039 302</li>
-            <ul>
-          </td>
-        </tr>
-
-        <tr>
-          <td class="heading">Fall 2014</td>
-          <td class="heading">Spring 2015</td>
-        </tr>
-
-          <td class="fall section">
-            <ul class="courses">
-              <li class="course">CIS 160</li>
-              <li class="course">CIS 120</li>
-              <li class="course">MATH 240</li>
-              <li class="course">NETS 213</li>
-              <li class="course">MGMT 100</li>
-            <ul>
-          </td>
-          <td class="spring section">
-            <ul class="courses">
-              <li class="course">CIS 121</li>
-              <li class="course">MGMT 101</li>
-              <li class="course">BEPP 250</li>
-              <li class="course">EAS 203</li>
-              <li class="course">WRIT 039 302</li>
-            <ul>
-          </td>
-        </tr>
-
-        <tr>
-          <td class="heading">Fall 2014</td>
-          <td class="heading">Spring 2015</td>
-        </tr>
-
-          <td class="fall section">
-            <ul class="courses">
-              <li class="course">CIS 160</li>
-              <li class="course">CIS 120</li>
-              <li class="course">MATH 240</li>
-              <li class="course">NETS 213</li>
-              <li class="course">MGMT 100</li>
-            <ul>
-          </td>
-          <td class="spring section">
-            <ul class="courses">
-              <li class="course">CIS 121</li>
-              <li class="course">MGMT 101</li>
-              <li class="course">BEPP 250</li>
-              <li class="course">EAS 203</li>
-              <li class="course">WRIT 039 302</li>
-            <ul>
-          </td>
-        </tr>
-
-        <tr>
-          <td class="heading">Fall 2014</td>
-          <td class="heading">Spring 2015</td>
-        </tr>
-
-          <td class="fall section">
-            <ul class="courses">
-              <li class="course">CIS 160</li>
-              <li class="course">CIS 120</li>
-              <li class="course">MATH 240</li>
-              <li class="course">NETS 213</li>
-              <li class="course">MGMT 100</li>
-            <ul>
-          </td>
-          <td class="spring section">
-            <ul class="courses">
-              <li class="course">CIS 121</li>
-              <li class="course">MGMT 101</li>
-              <li class="course">BEPP 250</li>
-              <li class="course">EAS 203</li>
-              <li class="course">WRIT 039 302</li>
-            <ul>
-          </td>
-        </tr>
-        <tr>
-          <td class="btn" id="add-course" colspan="2">
-            <span><i class='fa fa-plus'></i>&nbsp;<span class="label">Add Course</span></span>
-          </td>
-        </tr>
-      </table>
-
-    <script type="text/javascript" src="/javascripts/jquery.override.js"></script>
-    <script type="text/javascript" src="/javascripts/tipped.js"></script>
-    <script type="text/javascript" src="/javascripts/schedule.js"></script>
+      </div>
+      <p>Alpha build. &copy; 2017.</p>
+    </div>
   </body>
 </html>
