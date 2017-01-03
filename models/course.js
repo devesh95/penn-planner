@@ -23,7 +23,7 @@ courseReviewsByName = function getReviewsByName(name, cb) {
 								data.result.values.forEach(function(review) {
 									if (review.section.sectionnum === section) {
 										// Process each review here
-
+										
 									}
 								})
 							}
