@@ -7,9 +7,10 @@ $(document).ready(function() {
   // GLOBAL JQUERY STATIC CACHING
   window.schedule = $('#schedule');
   window.addButton = $('#add-course');
+  window.gradYear = 2018;
 
-
-
+  // first build statics
+  buildSemesters();
   // Build tooltips...
   buildToolTips();
   // ...and then marshall the course lists to drag/drop lists
@@ -88,6 +89,13 @@ $(document).ready(function() {
   /**
    * Helper functions
    */
+  
+  function buildSemesters() {
+    // set semester labels
+    $('.year').get().reverse().forEach(function(semester, idx) {
+      $(this).text(Math.round(window.gradYear - (0.5 * idx)));
+    });
+  }
 
   function buildToolTips() {
     window.schedule.find('.course').each(function(idx, course) {
