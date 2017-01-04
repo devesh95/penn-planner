@@ -58,6 +58,7 @@ var fetchAverageRating = function(courseId, cb) {
  * @return {String}              Course ID
  */
 var getCourseIdFromCourseMap = function(courses, coursecode) {
+	console.log(coursecode);
 	courses.result.coursehistories.forEach(function(course) {
 		course.aliases.forEach(function(alias) {
 			if (alias.endsWith(coursecode)) {
