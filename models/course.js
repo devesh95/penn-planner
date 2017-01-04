@@ -43,7 +43,6 @@ var courseReviewsByName = function(name, cb) {
  * @param  {Function} cb       provided with err and rating
  */
 var fetchAverageRating = function(courseId, cb) {
-	console.log(courseId);
 	if (!courseId) {
 		cb('Invalid Course ID');
 	} else {

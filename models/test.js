@@ -6,20 +6,21 @@ var course = require('../models/course')
  */
 
 
-var testRoutine = function(coursename) {
-  console.log('-----------------------\nStarting test for ' + coursename + '\n');
+var testRoutine = function(coursename, times) {
   var start = Date.now();
   course.courseReviewsByName(coursename, function(err, result) {
-    console.log(err, result);
-    console.log('Time taken: ' + (Date.now() - start) + 'ms.\n');
+    if (err) throw err;
+    console.log('[' + times + '] Time taken: ' + (Date.now() - start) + 'ms.');
 
     // this should be faster because of the cache
-    start = Date.now();
-    course.courseReviewsByName(coursename, function(err, result) {
-      console.log(err, result);
-      console.log('Time taken: ' + (Date.now() - start) + 'ms. (Should be much faster than above)\n');
-    });
+    if (times - 1 > 0) {
+      testRoutine(coursename, times - 1);
+    }
   });
 }
 
-testRoutine('CIS 197');
+console.log('-----------------------');
+console.log('Starting test for CIS 197');
+console.log('-----------------------');
+
+testRoutine('CIS 197', 10);
