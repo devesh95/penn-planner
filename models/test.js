@@ -6,7 +6,7 @@ var course = require('../models/course')
  */
 
 
-var testRoutine = function(coursename, times) {
+var testRoutine = function(coursename, times, done) {
   var start = Date.now();
   course.courseReviewsByName(coursename, function(err, result) {
     if (err) throw err;
@@ -14,7 +14,9 @@ var testRoutine = function(coursename, times) {
 
     // this should be faster because of the cache
     if (times - 1 > 0) {
-      testRoutine(coursename, times - 1);
+      testRoutine(coursename, times - 1, done);
+    } else {
+      done();
     }
   });
 }
