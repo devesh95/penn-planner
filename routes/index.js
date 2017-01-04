@@ -8,7 +8,6 @@ router.get('/', function(req, res, next) {
 });
 
 router.get('/plan', isLoggedIn, function(req, res) {
-  var user = req.user;
   res.render('plan');
 });
 

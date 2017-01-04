@@ -18,8 +18,6 @@ module.exports = {
     });
 
     passport.deserializeUser(function(id, done) {
-      console.log(id);
-
       User.findOne({
         'google.id': String(id)
       }, function(err, user) {

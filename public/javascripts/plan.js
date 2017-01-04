@@ -40,8 +40,10 @@ $(document).ready(function() {
 
     if (shouldCancel) {
       $('.course-input').remove(); // remove all inputs
-      button.find('.label').text('Add Course');
-      button.data('cancel', false);
+      setButtonProps({
+        label: 'Add Course',
+        shouldCancel: false
+      });
       return;
     }
 
@@ -135,6 +137,11 @@ $(document).ready(function() {
     var button = window.addButton;
     button.find('.label').text(props.label);
     button.data('cancel', props.shouldCancel);
+    if (props.shouldCancel) {
+      button.find('i').removeClass('fa-plus').addClass('fa-times');
+    } else {
+      button.find('i').removeClass('fa-times').addClass('fa-plus');
+    }
   }
 
 
