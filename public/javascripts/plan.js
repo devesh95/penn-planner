@@ -92,13 +92,8 @@ $(document).ready(function() {
       var courseEl = $(course).get(0);
       var $course = $(course);
 
-      // if ($course.data('tooltipped')) {
-      //   return;
-      // } // already tooltipped
-
       // add course idx
       $course.data('courseIdx', idx);
-      // $course.data('tooltipped', true);
       window.nextCourseIdx = idx + 1;
 
       var courseText = $course.text();
