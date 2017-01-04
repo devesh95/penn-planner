@@ -27,10 +27,10 @@ console.log('--------------');
 
 var start = Date.now();
 testRoutine('CIS 197', 10, function() {
-  console.log('Test complete. Total time: ' + (Date.now - start) + 'ms.');
+  console.log('Test complete. Total time: ' + (Date.now() - start) + 'ms.\n');
 
   start = Date.now();
-  testRoutine('WRIT 302 039', 10, function() {
-    console.log('Test complete. Total time: ' + (Date.now - start) + 'ms.');
+  testRoutine('WRIT 039 302', 10, function() {
+    console.log('Test complete. Total time: ' + (Date.now() - start) + 'ms.\n');
   });
 });
