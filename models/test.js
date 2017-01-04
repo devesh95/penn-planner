@@ -19,8 +19,16 @@ var testRoutine = function(coursename, times) {
   });
 }
 
-console.log('-----------------------');
-console.log('Starting test for CIS 197');
-console.log('-----------------------');
+console.log('--------------');
+console.log('Starting tests');
+console.log('--------------');
 
-testRoutine('CIS 197', 10);
+var start = Date.now();
+testRoutine('CIS 197', 10, function() {
+  console.log('Test complete. Total time: ' + (Date.now - start) + 'ms.');
+
+  start = Date.now();
+  testRoutine('WRIT 302 039', 10, function() {
+    console.log('Test complete. Total time: ' + (Date.now - start) + 'ms.');
+  });
+});
