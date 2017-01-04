@@ -20,12 +20,8 @@ courseReviewsByName = function getReviewsByName(name, cb) {
 					if (alias.endsWith(coursecode)) {
 						pcr.courseHistoryReviews(course.id, function(err, data) {
 							if (!err) {
-								data.result.values.forEach(function(review) {
-									if (review.section.sectionnum === section) {
-										// Process each review here
-										
-									}
-								})
+								var results = data.result.values.filter(review => (review.section.sectionnum === section));
+								cb(results);
 							}
 						});
 					}
