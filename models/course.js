@@ -43,6 +43,7 @@ var courseReviewsByName = function(name, cb) {
  * @param  {Function} cb       provided with err and rating
  */
 var fetchAverageRating = function(courseId, cb) {
+	console.log(courseId);
 	if (!courseId) {
 		cb('Invalid Course ID');
 	} else {
@@ -58,14 +59,13 @@ var fetchAverageRating = function(courseId, cb) {
  * @return {String}              Course ID
  */
 var getCourseIdFromCourseMap = function(courses, coursecode) {
-	console.log(coursecode);
-	courses.result.coursehistories.forEach(function(course) {
-		course.aliases.forEach(function(alias) {
+	for (var course of courses.result.coursehistories) {
+		for (var alias of course.aliases) {
 			if (alias.endsWith(coursecode)) {
 				return course.id;
 			}
-		});
-	});
+		}
+	}
 	return null;
 }
 
