@@ -18,10 +18,9 @@ courseReviewsByName = function getReviewsByName(name, cb) {
 			courses.result.coursehistories.forEach(function(course) {
 				course.aliases.forEach(function(alias) { 
 					if (alias.endsWith(coursecode)) {
-						pcr.courseHistoryReviews(course.id, function(err, data) {
+						pcr.averageReview(course.id, function(err, data) {
 							if (!err) {
-								var results = data.result.values.filter(review => (review.section.sectionnum === section));
-								cb(results);
+								cb(data);
 							}
 						});
 					}
