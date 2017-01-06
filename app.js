@@ -56,8 +56,9 @@ require('./passport/config').createPassportConfig(passport, credentials);
 
 /* Route handling */
 var routes = require('./routes/index');
+var api = require('./routes/api');
 app.use('/', routes);
-
+app.use('/api', api);
 
 
 /* Error handling */
