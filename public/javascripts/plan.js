@@ -72,7 +72,7 @@ $(document).ready(function() {
       var courseText = $inputEl.val();
 
       // remove all input boxes
-      $('.course-input').val('');
+      $('.course-input').remove();
       // append the new course to the appropriate semester course list
       if ($courseList.find('.course').length == 0) {
         $courseList.append('<li data-credit="1" class="course">' + courseText + '</li>');
