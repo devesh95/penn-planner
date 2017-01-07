@@ -7,19 +7,19 @@
           "labels" : [ ],
           "courses" : [
             {
-              "code" : "CIS 160",
+              "code" : "CIS 160"
             },
             {
-              "code" : "CIS 120",
+              "code" : "CIS 120"
             },
             {
-              "code" : "MATH 240",
+              "code" : "MATH 240"
             },
             {
-              "code" : "NETS 213",
+              "code" : "NETS 213"
             },
             {
-              "code" : "MGMT 100",
+              "code" : "MGMT 100"
             }
           ]
         },
@@ -27,19 +27,19 @@
           "labels" : [ ],
           "courses" : [
             {
-              "code" : "CIS 121",
+              "code" : "CIS 121"
             },
             {
-              "code" : "MGMT 101",
+              "code" : "MGMT 101"
             },
             {
-              "code" : "BEPP 250",
+              "code" : "BEPP 250"
             },
             {
-              "code" : "EAS 203",
+              "code" : "EAS 203"
             },
             {
-              "code" : "WRIT 039 302",
+              "code" : "WRIT 039 302"
             }
           ]
         },
@@ -47,19 +47,19 @@
           "labels" : [ ],
           "courses" : [
             {
-              "code" : "CIS 160",
+              "code" : "CIS 160"
             },
             {
-              "code" : "CIS 120",
+              "code" : "CIS 120"
             },
             {
-              "code" : "MATH 240",
+              "code" : "MATH 240"
             },
             {
-              "code" : "NETS 213",
+              "code" : "NETS 213"
             },
             {
-              "code" : "MGMT 100",
+              "code" : "MGMT 100"
             }
           ]
         },
@@ -67,19 +67,19 @@
           "labels" : [ ],
           "courses" : [
             {
-              "code" : "CIS 121",
+              "code" : "CIS 121"
             },
             {
-              "code" : "MGMT 101",
+              "code" : "MGMT 101"
             },
             {
-              "code" : "BEPP 250",
+              "code" : "BEPP 250"
             },
             {
-              "code" : "EAS 203",
+              "code" : "EAS 203"
             },
             {
-              "code" : "WRIT 039 302",
+              "code" : "WRIT 039 302"
             }
           ]
         },
@@ -87,19 +87,19 @@
           "labels" : [ ],
           "courses" : [
             {
-              "code" : "CIS 160",
+              "code" : "CIS 160"
             },
             {
-              "code" : "CIS 120",
+              "code" : "CIS 120"
             },
             {
-              "code" : "MATH 240",
+              "code" : "MATH 240"
             },
             {
-              "code" : "NETS 213",
+              "code" : "NETS 213"
             },
             {
-              "code" : "MGMT 100",
+              "code" : "MGMT 100"
             }
           ]
         },
@@ -107,19 +107,19 @@
           "labels" : [ ],
           "courses" : [
             {
-              "code" : "CIS 121",
+              "code" : "CIS 121"
             },
             {
-              "code" : "MGMT 101",
+              "code" : "MGMT 101"
             },
             {
-              "code" : "BEPP 250",
+              "code" : "BEPP 250"
             },
             {
-              "code" : "EAS 203",
+              "code" : "EAS 203"
             },
             {
-              "code" : "WRIT 039 302",
+              "code" : "WRIT 039 302"
             }
           ]
         },
@@ -127,19 +127,19 @@
           "labels" : [ ],
           "courses" : [
             {
-              "code" : "CIS 160",
+              "code" : "CIS 160"
             },
             {
-              "code" : "CIS 120",
+              "code" : "CIS 120"
             },
             {
-              "code" : "MATH 240",
+              "code" : "MATH 240"
             },
             {
-              "code" : "NETS 213",
+              "code" : "NETS 213"
             },
             {
-              "code" : "MGMT 100",
+              "code" : "MGMT 100"
             }
           ]
         },
@@ -147,19 +147,19 @@
           "labels" : [ ],
           "courses" : [
             {
-              "code" : "CIS 121",
+              "code" : "CIS 121"
             },
             {
-              "code" : "MGMT 101",
+              "code" : "MGMT 101"
             },
             {
-              "code" : "BEPP 250",
+              "code" : "BEPP 250"
             },
             {
-              "code" : "EAS 203",
+              "code" : "EAS 203"
             },
             {
-              "code" : "WRIT 039 302",
+              "code" : "WRIT 039 302"
             }
           ]
         }
@@ -167,3 +167,4 @@
     }
   ]
 }
+
