@@ -77,10 +77,10 @@ $(document).ready(function() {
       if ($courseList.find('.course').length == 0) {
         $courseList.append('<li data-credit="1" class="course">' + courseText + '</li>');
       } else {
-      $courseList
-        .find('.course')
-        .last()
-        .after('<li data-credit="1" class="course">' + courseText + '</li>');
+        $courseList
+          .find('.course')
+          .last()
+          .after('<li data-credit="1" class="course">' + courseText + '</li>');
       }
       // build associated tooltip
       buildToolTips();
@@ -91,11 +91,12 @@ $(document).ready(function() {
       // update plan in db
       savePlan();
 
-      $('#add-course').trigger('click');
       setButtonProps({
         label: 'Cancel',
         shouldCancel: false
       });
+      $('#add-course').trigger('click');
+
     } else if (e.which == 27) {
       $('#add-course').trigger('click');
     }
@@ -112,7 +113,7 @@ $(document).ready(function() {
 
     setTotalCredits();
     // update plan in db
-    savePlan();  
+    savePlan();
   });
 
 
