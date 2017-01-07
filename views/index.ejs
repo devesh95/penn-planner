@@ -4,14 +4,16 @@
     <title>Penn Planner | Home </title>
     <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css"> <!-- load bootstrap css -->
     <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css"> <!-- load fontawesome -->
+    <link rel='stylesheet' href='/stylesheets/footer.css' />
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
     <style>
       body { padding-top: 50px; }
       img { width: 140px; height: 140px; }
       .fa-sign-out { float: right; }
     </style>
   </head>
-    <body>
-    <div class="col-sm-8 col-sm-offset-2">
+    <body style="overflow: hidden">
+    <div class="col-sm-8 col-sm-offset-2 wrapper">
       <div class="jumbotron text-center">
         <h1>Penn Planner</h1>
         <p class="lead">More effective course planning today.</p>
@@ -21,5 +23,7 @@
       </div>
       <p>Alpha build. &copy; 2017.</p>
     </div>
+
+    <%- include('footer') %>
   </body>
 </html>

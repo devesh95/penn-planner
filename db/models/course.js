@@ -10,6 +10,12 @@ var courseSchema = mongoose.Schema({
     type: String,
     required: true,
   },
+  credit: {
+    type: Number,
+    required: true,
+    default: 1
+  },
+  label: String
 });
 
 module.exports = mongoose.model('Course', courseSchema);

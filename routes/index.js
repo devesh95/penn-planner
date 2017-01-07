@@ -2,13 +2,27 @@ var express = require('express');
 var passport = require('passport');
 var router = express.Router();
 
+var User = require('../db/models/user');
+
 /* GET home page. */
 router.get('/', function(req, res, next) {
   res.render('index');
 });
 
 router.get('/plan', isLoggedIn, function(req, res) {
-  res.render('plan');
+  var user_id = req.user._id;
+  User.findOne(user_id, function(err, user) {
+    if (err) {
+      console.log(err);
+      res.redirect('/');
+    } else {
+      res.render('plan', {
+        user: user,
+        semesters: user.plans[0].semesters,
+        startYear: user.plans[0].gradYear - (user.plans[0].semesters.length / 2)
+      });
+    }
+  });
 });
 
 

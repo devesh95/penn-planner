@@ -3,6 +3,7 @@
   <head>
     <title>Penn Planner</title>
     <link rel='stylesheet' href='/stylesheets/style.css' />
+    <link rel='stylesheet' href='/stylesheets/footer.css' />
     <link rel='stylesheet' href='/stylesheets/tipped.css' />
     <link rel='stylesheet' href='/stylesheets/card.css' />
 
@@ -23,114 +24,52 @@
     <div id="schedule" class="container">
       <table id="schedule">
         <tr>
-          <th colspan="2">Four Year Plan</th>
-        </tr>
-        <tr>
-          <td class="heading">Fall <span class="year">2014</span></td>
-          <td class="heading">Spring <span class="year">2015</span></td>
+          <th colspan="3">Four Year Plan</th>
         </tr>
 
-        <tr>
-          <td class="fall section">
-            <ul class="courses">
-              <li class="course">CIS 160</li>
-              <li class="course">CIS 120</li>
-              <li class="course">MATH 240</li>
-              <li class="course">NETS 213</li>
-              <li class="course">MGMT 100</li>
-            <ul>
-          </td>
-          <td class="spring section">
-            <ul class="courses">
-              <li class="course">CIS 121</li>
-              <li class="course">MGMT 101</li>
-              <li class="course">BEPP 250</li>
-              <li class="course">EAS 203</li>
-              <li class="course">WRIT 039 302</li>
-            <ul>
-          </td>
-        </tr>
+        <% for (var i = 0; i < semesters.length; i+=2) { %>
+          <tr>
+            <td class="heading" colspan="2">Fall <span class="year"><%= startYear + (i > 0 ? i / 2 : 0) %></span></td>
+            <td class="heading">Spring <span class="year"><%= startYear + (i > 0 ? i / 2 : 0) + 1 %></span></td>
+          </tr>
 
-        <tr>
-          <td class="heading">Fall <span class="year">2015</span></td>
-          <td class="heading">Spring <span class="year">2016</span></td>
-        </tr>
+          <tr>
+            <td class="fall section" colspan="2">
+              <ul class="courses">
+                <% for (var j = 0 ; j < semesters[i].courses.length; j++) {%>
+                  <li data-credit="<%= semesters[i].courses[j].credit %>" class="course"><%= semesters[i].courses[j].code %></li>
+                <% } %>
+              <ul>
+            </td>
+            <td class="spring section">
+              <ul class="courses">
+                <% for (var j = 0 ; j < semesters[i+1].courses.length; j++) {%>
+                  <li data-credit="<%= semesters[i+1].courses[j].credit %>"class="course"><%= semesters[i+1].courses[j].code %></li>
+                <% } %>
+              <ul>
+            </td>
+          </tr>
+        <% } %>
 
-          <td class="fall section">
-            <ul class="courses">
-              <li class="course">CIS 160</li>
-              <li class="course">CIS 120</li>
-              <li class="course">MATH 240</li>
-              <li class="course">NETS 213</li>
-              <li class="course">MGMT 100</li>
-            <ul>
-          </td>
-          <td class="spring section">
-            <ul class="courses">
-              <li class="course">CIS 121</li>
-              <li class="course">MGMT 101</li>
-              <li class="course">BEPP 250</li>
-              <li class="course">EAS 203</li>
-              <li class="course">WRIT 039 302</li>
-            <ul>
-          </td>
-        </tr>
-
-        <tr>
-          <td class="heading">Fall <span class="year">2016</span></td>
-          <td class="heading">Spring <span class="year">2017</span></td>
-        </tr>
-
-          <td class="fall section">
-            <ul class="courses">
-              <li class="course">CIS 160</li>
-              <li class="course">CIS 120</li>
-              <li class="course">MATH 240</li>
-              <li class="course">NETS 213</li>
-              <li class="course">MGMT 100</li>
-            <ul>
-          </td>
-          <td class="spring section">
-            <ul class="courses">
-              <li class="course">CIS 121</li>
-              <li class="course">MGMT 101</li>
-              <li class="course">BEPP 250</li>
-              <li class="course">EAS 203</li>
-              <li class="course">WRIT 039 302</li>
-            <ul>
-          </td>
-        </tr>
-
-        <tr>
-          <td class="heading">Fall <span class="year">2017</span></td>
-          <td class="heading">Spring <span class="year">2018</span></td>
-        </tr>
-
-          <td class="fall section">
-            <ul class="courses">
-              <li class="course">CIS 160</li>
-              <li class="course">CIS 120</li>
-              <li class="course">MATH 240</li>
-              <li class="course">NETS 213</li>
-              <li class="course">MGMT 100</li>
-            <ul>
-          </td>
-          <td class="spring section">
-            <ul class="courses">
-              <li class="course">CIS 121</li>
-              <li class="course">MGMT 101</li>
-              <li class="course">BEPP 250</li>
-              <li class="course">EAS 203</li>
-              <li class="course">WRIT 039 302</li>
-            <ul>
-          </td>
-        </tr>
-        <tr>
-          <td class="btn" id="add-course" colspan="2">
+        <tr class="controls">
+          <td class="btn" id="add-course">
             <span><i class='fa fa-plus'></i>&nbsp;<span class="label">Add Course</span></span>
+          </td>
+          <td class="btn" id="add-label">
+            <span><i class='fa fa-plus'></i>&nbsp;<span class="label">Add Label</span></span>
+          </td>
+          <td class="btn">
+            <span>
+                <i class='fa fa-book'></i>
+                &nbsp;<span id="credit-total" class="label"></span> CU (total)&nbsp;
+                <i class='fa fa-tags'></i>
+                &nbsp;<span id="label-total" class="label">2</span> Labels &nbsp;
+            <span>
           </td>
         </tr>
       </table>
+      <p class="labels"></p>
+    </div>
 
     <script type="text/javascript" src="/javascripts/jquery.override.js"></script>
     <script type="text/javascript" src="/javascripts/tipped.js"></script>

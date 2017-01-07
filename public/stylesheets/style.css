@@ -3,8 +3,13 @@
  */
 
 body {
-  padding: 10px 0;
   font: 12px "Lucida Grande", Helvetica, Arial, sans-serif;
+  position: relative;
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+  overflow: auto;
 }
 
 a {
@@ -17,7 +22,9 @@ p {
 
 
 .container {
+  padding: 10px 0;
   margin: 0 auto;
+  padding-bottom: 70px;
   max-width: 75%;
 }
 

@@ -15,6 +15,8 @@ $(document).ready(function() {
   buildToolTips();
   // ...and then marshall the course lists to drag/drop lists
   buildAllLists();
+  // finally, set initial plan stats
+  setTotalCredits();
 
 
 
@@ -30,6 +32,9 @@ $(document).ready(function() {
     // remove course and card
     var $courseToRemove = $('.course').filterByData('courseIdx', courseIdx);
     $courseToRemove.trigger('mouseleave').remove();
+    setTotalCredits();
+    // update plan in db
+    savePlan();
   });
 
 
@@ -67,21 +72,47 @@ $(document).ready(function() {
       var courseText = $inputEl.val();
 
       // remove all input boxes
-      $('.course-input').remove();
+      $('.course-input').val('');
       // append the new course to the appropriate semester course list
+      if ($courseList.find('.course').length == 0) {
+        $courseList.append('<li data-credit="1" class="course">' + courseText + '</li>');
+      } else {
       $courseList
         .find('.course')
         .last()
-        .after('<li class="course">' + courseText + '</li>');
+        .after('<li data-credit="1" class="course">' + courseText + '</li>');
+      }
       // build associated tooltip
       buildToolTips();
 
-      // reset the add course button
+      // update stats
+      setTotalCredits();
+
+      // update plan in db
+      savePlan();
+
+      $('#add-course').trigger('click');
       setButtonProps({
-        label: 'Add Course',
+        label: 'Cancel',
         shouldCancel: false
       });
+    } else if (e.which == 27) {
+      $('#add-course').trigger('click');
     }
+  });
+
+
+  $(document).on('change', '.course-credit', function(e) {
+    var $creditSelect = $(e.target);
+    var credit = $creditSelect.val();
+    var courseIdx = $creditSelect.data('courseIdx');
+
+    var $course = $('.course').filterByData('courseIdx', courseIdx);
+    $course.data('credit', credit);
+
+    setTotalCredits();
+    // update plan in db
+    savePlan();  
   });
 
 
@@ -89,7 +120,7 @@ $(document).ready(function() {
   /**
    * Helper functions
    */
-  
+
   function buildSemesters() {
     // set semester labels
     $('.year').get().reverse().forEach(function(semester, idx) {
@@ -107,19 +138,28 @@ $(document).ready(function() {
       window.nextCourseIdx = idx + 1;
 
       var courseText = $course.text();
+      var courseCredit = $course.data('credit');
+      var isFallCourse = $course.parent().parent().hasClass('fall');
 
       var tooltip = $('#course-card').clone();
       tooltip.find('.card-title').text(courseText);
-      tooltip.find('.card-remove').data('courseIdx', idx);
+      tooltip.find('.course-credit option[value="' + courseCredit + '"]').attr('selected', true);
+      tooltip.find('.card-remove, .course-credit').data('courseIdx', idx);
 
       Tipped.create(courseEl, tooltip, {
-        close: 'overlap',
+        // close: 'overlap',
         fadeIn: 350,
         hideOn: 'dragstart mouseleave',
         hideOnClickOutside: true,
         hideOthers: true,
+        offset: {
+          y: -3,
+          x: isFallCourse ? 48 : -48
+        },
         padding: false,
-        showDelay: 1000,
+        position: isFallCourse ? 'left' : 'right',
+        showDelay: 75,
+        stem: false,
       });
     });
   }
@@ -138,6 +178,11 @@ $(document).ready(function() {
       chosenClass: 'chosen-course',
       ghostClass: 'ghost-course',
       group: 'schedule',
+      onEnd: function() {
+        // whenever a course has been re-ordered or dragged around, save plan
+        savePlan();
+        $('.course').trigger('mouseleave');
+      }
     });
   }
 
@@ -152,5 +197,64 @@ $(document).ready(function() {
     }
   }
 
+  function setTotalCredits() {
+    var total = 0;
+    $('.course').each(function() {
+      total += Number($(this).data('credit'));
+    });
+    $('#credit-total').text(total);
+  }
+
+  function serializeSemesters() {
+    var semesters = new Array(8);
+    $('.courses').each(function(idx) {
+      semesters[idx] = {
+        courses: []
+      };
+      $(this).find('.course').each(function() {
+        semesters[idx].courses.push({
+          code: $(this).text(),
+          credit: $(this).data('credit')
+        });
+      });
+    });
+    return semesters;
+  }
+
+  function savePlan() {
+    // debounce
+    if (!debounce(5000, savePlan)) return;
+    // serializes and saves the current plan for the user
+    var semesters = serializeSemesters();
+    var data = {
+      labels: [],
+      gradYear: window.gradYear,
+      semesters: JSON.stringify(semesters)
+    }
+    $.post('/data/semesters/save', data)
+      .done(function(msg) {
+        console.log(msg)
+      })
+      .fail(function(xhr, status, err) {
+        console.log(status, err)
+      });
+  }
+  window.savePlan = savePlan;
+
+
+  function debounce(time, caller) {
+    if (window.debounce) {
+      console.log('Bounced for ' + (time / 2) + 'ms');
+      setTimeout(caller, (time / 2)); // wait and try again
+      return false;
+    } else {
+      window.debounce = time;
+      setTimeout(function() {
+        console.log('Debounce cleared.');
+        window.debounce = false;
+      }, time);
+      return true;
+    }
+  }
 
 });

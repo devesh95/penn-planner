@@ -57,8 +57,10 @@ require('./passport/config').createPassportConfig(passport, credentials);
 /* Route handling */
 var routes = require('./routes/index');
 var api = require('./routes/api');
+var data = require('./routes/data');
 app.use('/', routes);
 app.use('/api', api);
+app.use('/data', data);
 
 
 /* Error handling */
