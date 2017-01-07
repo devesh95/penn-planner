@@ -5,6 +5,7 @@
 var GoogleStrategy = require('passport-google-oauth').OAuth2Strategy;
 var Mongoose = require('mongoose');
 var User = require('../db/models/user');
+var DefaultPlan = require('../db/default_plan').plans;
 
 /**
  * Helper to set up passport configurations
@@ -45,6 +46,7 @@ module.exports = {
             newUser.google.token = token;
             newUser.google.name = profile.displayName;
             newUser.google.email = profile.emails[0].value;
+            newUser.plans = DefaultPlan;
             newUser.save(function(err) {
               if (err)
                 throw err;
