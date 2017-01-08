@@ -38,6 +38,20 @@ $(document).ready(function() {
   });
 
 
+  $(document).on('click', '#add-label', showLabelModal);
+  $(document).on('click', '.close-modal', hideLabelModal);
+  $(document).on('keyup', '.label-name', function(e) {
+    if (e.which == 13) {
+      hideLabelModal();
+      var name = $(this).val();
+      var color = $('.label-color').val();
+      // TODO: add to label options
+    } else if (e.which == 27) {
+      hideLabelModal();
+    }
+  });
+
+
   // Button to add more courses to course lists
   $(document).on('click', '#add-course', function(e) {
     e.preventDefault();
@@ -58,7 +72,7 @@ $(document).ready(function() {
     $('.course-input').focus();
 
     setButtonProps({
-      label: 'Cancel',
+      label: 'Done',
       shouldCancel: true
     });
   });
@@ -192,9 +206,9 @@ $(document).ready(function() {
     button.find('.label').text(props.label);
     button.data('cancel', props.shouldCancel);
     if (props.shouldCancel) {
-      button.find('i').removeClass('fa-plus').addClass('fa-times');
+      button.find('i').removeClass('fa-plus').addClass('fa-check');
     } else {
-      button.find('i').removeClass('fa-times').addClass('fa-plus');
+      button.find('i').removeClass('fa-check').addClass('fa-plus');
     }
   }
 
@@ -256,6 +270,22 @@ $(document).ready(function() {
       }, time);
       return true;
     }
+  }
+
+  function showLabelModal() {
+    var modal = $('#new-label-modal');
+    $('.label-color').css({
+      'font-size': '14px',
+      'text-align': 'center',
+      'width': '80%'
+    });
+    modal.show();
+    $('.label-name').focus();
+  }
+
+  function hideLabelModal() {
+    var modal = $('#new-label-modal');
+    modal.hide();
   }
 
 });
