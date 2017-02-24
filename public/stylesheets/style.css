@@ -167,19 +167,13 @@ input[type="text"] {
 
 .modal-header {
     padding: 2px 16px;
-    background-color: #5cb85c;
+    background-color: #4CAF50;
     color: white;
 }
 
 .modal-body {
   padding: 2px 16px;
   font-size: 16px;
-}
-
-.modal-footer {
-    padding: 2px 16px;
-    background-color: #5cb85c;
-    color: white;
 }
 
 /* Add Animation */
@@ -214,5 +208,7 @@ input.label-color {
 input.label-name {
   width: 80%;
   border-style: solid;
+  border-width: 1px;
   font-size: 16px;
+  text-align: center;
 }

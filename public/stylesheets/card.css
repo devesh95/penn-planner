@@ -13,7 +13,6 @@
 }
 
 .card-content {
-  background: #fff;
   color: #282828;
   margin-bottom: 10px;
 }
@@ -40,6 +39,10 @@
 
 .card-float-left {
   float: left;
+}
+
+.card-float-right {
+  float: right;
 }
 
 .card-action:hover {
@@ -70,4 +73,9 @@
   -moz-border-radius: 0;
   border-radius: 0;
   cursor:pointer;
+}
+
+.tpd-background {
+  border: none !important;
+  background: rgba(255, 255, 255, 0) !important;
 }

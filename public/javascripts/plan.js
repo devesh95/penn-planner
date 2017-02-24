@@ -161,18 +161,19 @@ $(document).ready(function() {
       tooltip.find('.course-credit option[value="' + courseCredit + '"]').attr('selected', true);
       tooltip.find('.card-remove, .course-credit').data('courseIdx', idx);
 
+      Tipped.remove(courseEl);
       Tipped.create(courseEl, tooltip, {
-        // close: 'overlap',
         fadeIn: 350,
         hideOn: 'dragstart mouseleave',
         hideOnClickOutside: true,
         hideOthers: true,
         offset: {
           y: -3,
-          x: isFallCourse ? 48 : -48
+          x: isFallCourse ? 46 : -46
         },
         padding: false,
         position: isFallCourse ? 'left' : 'right',
+        radius: false,
         showDelay: 75,
         stem: false,
       });
@@ -196,7 +197,7 @@ $(document).ready(function() {
       onEnd: function() {
         // whenever a course has been re-ordered or dragged around, save plan
         savePlan();
-        $('.course').trigger('mouseleave');
+        buildToolTips();
       }
     });
   }
@@ -237,8 +238,7 @@ $(document).ready(function() {
   }
 
   function savePlan() {
-    // debounce
-    if (!debounce(5000, savePlan)) return;
+    // if (!debounce(5000, savePlan)) return;    // debounce
     // serializes and saves the current plan for the user
     var semesters = serializeSemesters();
     var data = {
@@ -280,11 +280,13 @@ $(document).ready(function() {
       'width': '80%'
     });
     modal.show();
+    $('#schedule').css('margin-bottom', '100px');
     $('.label-name').focus();
   }
 
   function hideLabelModal() {
     var modal = $('#new-label-modal');
+    $('#schedule').css('margin-bottom', '10px');
     modal.hide();
   }
 
