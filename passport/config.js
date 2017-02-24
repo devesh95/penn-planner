@@ -2,7 +2,7 @@
  * @author Devesh Dayal deveshd@seas.upenn.edu
  */
 
-var GoogleStrategy = require('passport-google-oauth').OAuth2Strategy;
+var GoogleStrategy = require('passport-google-oauth2').OAuth2Strategy;
 var Mongoose = require('mongoose');
 var User = require('../db/models/user');
 var DefaultPlan = require('../db/default_plan').plans;
